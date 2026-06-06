@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "check": "node --check main.js"
+    "check": "node --check main.js src/config.js src/url-policy.js src/create-window.js test/config.test.js test/url-policy.test.js",
+    "test": "node --test",
+    "verify": "npm run check && npm test"
   },
   "keywords": [
     "ai",

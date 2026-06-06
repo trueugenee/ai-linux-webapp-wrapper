@@ -1,0 +1,16 @@
+{
+  "appId": "dashboard-wrapper",
+  "appName": "Dashboard",
+  "startUrl": "https://example.com/",
+  "allowedHosts": [
+    "example.com",
+    "www.example.com"
+  ],
+  "window": {
+    "width": 1280,
+    "height": 800,
+    "frame": false,
+    "backgroundColor": "#111111"
+  },
+  "hideScrollbars": true
+}

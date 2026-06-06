@@ -1,65 +1,30 @@
 const { app, BrowserWindow, Menu, shell, session } = require("electron");
 const os = require("node:os");
 const path = require("node:path");
+const { loadConfig } = require("./src/config");
+const { createWindow } = require("./src/create-window");
+const {
+  createUrlPolicy,
+  parseUrl,
+  shouldOpenExternally,
+} = require("./src/url-policy");
 
-const appId = "ai-linux-webapp-wrapper";
-const defaultWebappUrl = "https://www.tradingview.com/chart/";
-
-// Change this to your own webapp URL.
-// Example: "https://www.tradingview.com/chart/YOUR_CHART_ID/"
-const userWebappUrl = defaultWebappUrl;
-
-const webappUrl = process.env.WEBAPP_URL || userWebappUrl;
-const allowedInternalHosts = new Set([
-  "tradingview.com",
-  "www.tradingview.com",
-  "ru.tradingview.com",
-]);
-const hideScrollbarsCss = `
-  html,
-  body {
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-
-  ::-webkit-scrollbar {
-    width: 0 !important;
-    height: 0 !important;
-    display: none !important;
-  }
-`;
-
-function parseUrl(url) {
-  try {
-    return new URL(url);
-  } catch {
-    return null;
-  }
-}
-
-function isAllowedInternalUrl(url) {
-  const parsed = parseUrl(url);
-
-  return (
-    parsed !== null &&
-    parsed.protocol === "https:" &&
-    allowedInternalHosts.has(parsed.hostname)
-  );
-}
+const config = loadConfig();
+const urlPolicy = createUrlPolicy(config.allowedHosts);
 
 function openExternalHttps(url) {
-  const parsed = parseUrl(url);
-
-  if (parsed === null || parsed.protocol !== "https:") {
+  if (!shouldOpenExternally(url)) {
     return;
   }
+
+  const parsed = parseUrl(url);
 
   shell.openExternal(parsed.toString()).catch(() => {});
 }
 
-app.setName("TradingView");
-app.setDesktopName(`${appId}.desktop`);
-app.setPath("userData", path.join(os.homedir(), ".config", appId));
+app.setName(config.appName);
+app.setDesktopName(`${config.appId}.desktop`);
+app.setPath("userData", path.join(os.homedir(), ".config", config.appId));
 
 Menu.setApplicationMenu(null);
 
@@ -71,55 +36,13 @@ function configureSession(appSession) {
   appSession.setPermissionCheckHandler(() => false);
 }
 
-function guardNavigation(event, url) {
-  if (isAllowedInternalUrl(url)) {
-    return;
-  }
-
-  event.preventDefault();
-  openExternalHttps(url);
-}
-
-function createWindow() {
-  const win = new BrowserWindow({
-    width: 1280,
-    height: 800,
-    show: false,
-    frame: false,
-    autoHideMenuBar: true,
-    backgroundColor: "#131722",
-    webPreferences: {
-      contextIsolation: true,
-      nodeIntegration: false,
-      sandbox: true,
-    },
-  });
-
-  win.once("ready-to-show", () => {
-    win.show();
-  });
-
-  win.webContents.setWindowOpenHandler(({ url }) => {
-    openExternalHttps(url);
-    return { action: "deny" };
-  });
-
-  win.webContents.on("will-navigate", guardNavigation);
-  win.webContents.on("will-redirect", guardNavigation);
-  win.webContents.on("dom-ready", () => {
-    win.webContents.insertCSS(hideScrollbarsCss, { cssOrigin: "user" });
-  });
-
-  win.loadURL(webappUrl);
-}
-
 app.whenReady().then(() => {
   configureSession(session.defaultSession);
-  createWindow();
+  createWindow({ config, openExternalHttps, urlPolicy });
 
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
+      createWindow({ config, openExternalHttps, urlPolicy });
     }
   });
 });

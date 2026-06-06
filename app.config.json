@@ -1,0 +1,17 @@
+{
+  "appId": "ai-linux-webapp-wrapper",
+  "appName": "TradingView",
+  "startUrl": "https://www.tradingview.com/chart/",
+  "allowedHosts": [
+    "tradingview.com",
+    "www.tradingview.com",
+    "ru.tradingview.com"
+  ],
+  "window": {
+    "width": 1280,
+    "height": 800,
+    "frame": false,
+    "backgroundColor": "#131722"
+  },
+  "hideScrollbars": true
+}

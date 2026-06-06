@@ -11,13 +11,14 @@ default browser. Out of the box it opens TradingView.
 
 - Frameless webapp window.
 - Default URL: `https://www.tradingview.com/chart/`.
-- Custom start URL by editing one line in `main.js`.
+- Custom start URL through `app.config.json`.
 - Optional runtime override through `WEBAPP_URL`.
 - Hidden page scrollbars.
 - Electron menu disabled.
 - Renderer permissions denied by default.
 - `nodeIntegration` disabled, `contextIsolation` enabled, sandbox enabled.
 - App state stored in `~/.config/ai-linux-webapp-wrapper`.
+- Small test suite for config and navigation policy.
 
 ## Requirements
 
@@ -42,21 +43,32 @@ npm start
 
 ## Set Your Webapp URL
 
-Open `main.js` and change this line near the top:
+Open `app.config.json` and change:
 
-```js
-const userWebappUrl = defaultWebappUrl;
+```json
+"startUrl": "https://www.tradingview.com/chart/"
 ```
 
 For a custom TradingView chart:
 
-```js
-const userWebappUrl = "https://www.tradingview.com/chart/YOUR_CHART_ID/";
+```json
+"startUrl": "https://www.tradingview.com/chart/YOUR_CHART_ID/"
 ```
 
-Then run normally:
+Make sure the host is listed in `allowedHosts`:
+
+```json
+"allowedHosts": [
+  "tradingview.com",
+  "www.tradingview.com",
+  "ru.tradingview.com"
+]
+```
+
+Then verify and run:
 
 ```bash
+npm run verify
 npm start
 ```
 
@@ -64,6 +76,26 @@ You can also use a temporary URL without editing the file:
 
 ```bash
 WEBAPP_URL="https://ru.tradingview.com/chart/YOUR_CHART_ID/" npm start
+```
+
+## AI-Assisted Customization
+
+This project includes agent rules and safe prompt examples for changing the
+wrapper with Codex or another coding agent:
+
+- [AGENTS.md](AGENTS.md)
+- [docs/CUSTOMIZE_WITH_CODEX.md](docs/CUSTOMIZE_WITH_CODEX.md)
+- [docs/SECURITY.md](docs/SECURITY.md)
+
+Useful examples:
+
+- [examples/tradingview.config.json](examples/tradingview.config.json)
+- [examples/generic-dashboard.config.json](examples/generic-dashboard.config.json)
+
+## Verify
+
+```bash
+npm run verify
 ```
 
 ## Wayland Notes
