@@ -20,6 +20,21 @@ default browser. Out of the box it opens TradingView.
 - App state stored in `~/.config/ai-linux-webapp-wrapper`.
 - Small test suite for config and navigation policy.
 
+## How Is This Different?
+
+This project is not trying to replace larger tools like Nativefier, Pake, or
+Linux Mint Webapp Manager.
+
+- Nativefier and Pake are stronger if you want a full app generator or packaged
+  builds for many platforms.
+- Linux Mint Webapp Manager is stronger if you want a graphical desktop tool for
+  creating and managing webapps.
+- This project is smaller on purpose: it is a readable Electron template with a
+  config file, strict security defaults, tests, and agent-friendly docs.
+
+Use this when you want a tiny Linux-focused webapp wrapper that you can inspect,
+fork, and customize with Codex or another coding agent.
+
 ## Requirements
 
 - Linux
