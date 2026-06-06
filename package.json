@@ -1,0 +1,23 @@
+{
+  "name": "tradingview-electron-wrapper",
+  "version": "1.0.0",
+  "description": "A small frameless Electron wrapper for TradingView.",
+  "main": "main.js",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check main.js"
+  },
+  "keywords": [
+    "tradingview",
+    "electron",
+    "linux",
+    "wayland",
+    "wrapper"
+  ],
+  "devDependencies": {
+    "electron": "^37.0.0"
+  }
+}
+
