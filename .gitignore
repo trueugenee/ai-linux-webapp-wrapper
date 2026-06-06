@@ -8,4 +8,4 @@ build/
 out/
 .env
 .DS_Store
-
+docs/superpowers/

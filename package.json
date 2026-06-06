@@ -1,7 +1,7 @@
 {
-  "name": "tradingview-electron-wrapper",
+  "name": "ai-linux-webapp-wrapper",
   "version": "1.0.0",
-  "description": "A small frameless Electron wrapper for TradingView.",
+  "description": "An AI-friendly Linux Electron wrapper template for frameless webapps.",
   "main": "main.js",
   "private": false,
   "license": "MIT",
@@ -10,6 +10,9 @@
     "check": "node --check main.js"
   },
   "keywords": [
+    "ai",
+    "webapp",
+    "template",
     "tradingview",
     "electron",
     "linux",
@@ -20,4 +23,3 @@
     "electron": "^37.0.0"
   }
 }
-

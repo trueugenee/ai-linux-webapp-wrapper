@@ -2,15 +2,15 @@ const { app, BrowserWindow, Menu, shell, session } = require("electron");
 const os = require("node:os");
 const path = require("node:path");
 
-const appId = "tradingview-electron-wrapper";
-const defaultTradingViewUrl = "https://www.tradingview.com/chart/";
+const appId = "ai-linux-webapp-wrapper";
+const defaultWebappUrl = "https://www.tradingview.com/chart/";
 
-// Change this to your own TradingView chart or layout URL.
+// Change this to your own webapp URL.
 // Example: "https://www.tradingview.com/chart/YOUR_CHART_ID/"
-const userTradingViewUrl = defaultTradingViewUrl;
+const userWebappUrl = defaultWebappUrl;
 
-const tradingViewUrl = process.env.TRADINGVIEW_URL || userTradingViewUrl;
-const allowedTradingViewHosts = new Set([
+const webappUrl = process.env.WEBAPP_URL || userWebappUrl;
+const allowedInternalHosts = new Set([
   "tradingview.com",
   "www.tradingview.com",
   "ru.tradingview.com",
@@ -37,13 +37,13 @@ function parseUrl(url) {
   }
 }
 
-function isAllowedTradingViewUrl(url) {
+function isAllowedInternalUrl(url) {
   const parsed = parseUrl(url);
 
   return (
     parsed !== null &&
     parsed.protocol === "https:" &&
-    allowedTradingViewHosts.has(parsed.hostname)
+    allowedInternalHosts.has(parsed.hostname)
   );
 }
 
@@ -72,7 +72,7 @@ function configureSession(appSession) {
 }
 
 function guardNavigation(event, url) {
-  if (isAllowedTradingViewUrl(url)) {
+  if (isAllowedInternalUrl(url)) {
     return;
   }
 
@@ -110,7 +110,7 @@ function createWindow() {
     win.webContents.insertCSS(hideScrollbarsCss, { cssOrigin: "user" });
   });
 
-  win.loadURL(tradingViewUrl);
+  win.loadURL(webappUrl);
 }
 
 app.whenReady().then(() => {
