@@ -98,6 +98,8 @@ This project includes agent rules and safe prompt examples for changing the
 wrapper with Codex or another coding agent:
 
 - [AGENTS.md](AGENTS.md)
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+- [ROADMAP.md](ROADMAP.md)
 - [docs/CUSTOMIZE_WITH_CODEX.md](docs/CUSTOMIZE_WITH_CODEX.md)
 - [docs/SECURITY.md](docs/SECURITY.md)
 

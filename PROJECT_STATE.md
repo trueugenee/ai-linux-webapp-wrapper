@@ -35,6 +35,7 @@ npm run verify
 - TradingView remains the default use case, but the repository is documented as a generic wrapper template.
 - AI customization should happen through config and documented prompts first.
 - Desktop integration is optional and local-user scoped.
+- Community docs should guide small, focused contributions without expanding scope into a full app generator.
 
 ## Active Risks
 
