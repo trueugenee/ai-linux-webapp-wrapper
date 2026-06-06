@@ -60,8 +60,7 @@ Make sure the host is listed in `allowedHosts`:
 ```json
 "allowedHosts": [
   "tradingview.com",
-  "www.tradingview.com",
-  "ru.tradingview.com"
+  "www.tradingview.com"
 ]
 ```
 
@@ -75,7 +74,7 @@ npm start
 You can also use a temporary URL without editing the file:
 
 ```bash
-WEBAPP_URL="https://ru.tradingview.com/chart/YOUR_CHART_ID/" npm start
+WEBAPP_URL="https://www.tradingview.com/chart/YOUR_CHART_ID/" npm start
 ```
 
 ## AI-Assisted Customization

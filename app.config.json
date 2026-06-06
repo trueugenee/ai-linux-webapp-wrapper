@@ -4,8 +4,7 @@
   "startUrl": "https://www.tradingview.com/chart/",
   "allowedHosts": [
     "tradingview.com",
-    "www.tradingview.com",
-    "ru.tradingview.com"
+    "www.tradingview.com"
   ],
   "window": {
     "width": 1280,
