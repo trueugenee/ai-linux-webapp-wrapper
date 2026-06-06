@@ -8,8 +8,9 @@
   "scripts": {
     "start": "electron .",
     "check": "node --check main.js src/config.js src/url-policy.js src/create-window.js test/config.test.js test/url-policy.test.js",
+    "check:shell": "bash -n scripts/install-desktop-entry.sh",
     "test": "node --test",
-    "verify": "npm run check && npm test"
+    "verify": "npm run check && npm run check:shell && npm test"
   },
   "keywords": [
     "ai",

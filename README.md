@@ -127,29 +127,20 @@ binds {
 }
 ```
 
-## Desktop Entry Example
+## Desktop Entry
 
-Create `~/.local/share/applications/ai-linux-webapp-wrapper.desktop`:
-
-```ini
-[Desktop Entry]
-Name=TradingView
-Comment=Frameless TradingView app using AI Linux Webapp Wrapper
-Exec=sh -c 'cd "$HOME/ai-linux-webapp-wrapper" && npm start'
-Icon=ai-linux-webapp-wrapper
-Terminal=false
-Type=Application
-Categories=Network;Office;
-StartupWMClass=ai-linux-webapp-wrapper
-```
-
-Install the icon:
+Install a local desktop entry and icon:
 
 ```bash
-mkdir -p ~/.local/share/icons/hicolor/scalable/apps
-cp assets/ai-linux-webapp-wrapper.svg ~/.local/share/icons/hicolor/scalable/apps/
-gtk-update-icon-cache ~/.local/share/icons/hicolor || true
+./scripts/install-desktop-entry.sh
 ```
+
+The script reads `appId` and `appName` from `app.config.json`, then creates:
+
+- `~/.local/share/applications/<appId>.desktop`
+- `~/.local/share/icons/hicolor/scalable/apps/<appId>.svg`
+
+If you change `appId` or `appName`, run the script again.
 
 ## Security Model
 

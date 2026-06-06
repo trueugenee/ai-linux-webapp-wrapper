@@ -25,6 +25,7 @@ npm run verify
 - `src/config.js` loads and validates config.
 - `src/url-policy.js` owns navigation policy.
 - `src/create-window.js` owns Electron window/session setup.
+- `scripts/install-desktop-entry.sh` installs a local `.desktop` file and icon from `app.config.json`.
 
 ## Current Decisions
 
@@ -32,6 +33,7 @@ npm run verify
 - Renderer security defaults stay strict: no Node integration, context isolation on, sandbox on.
 - TradingView remains the default use case, but the repository is documented as a generic wrapper template.
 - AI customization should happen through config and documented prompts first.
+- Desktop integration is optional and local-user scoped.
 
 ## Active Risks
 
