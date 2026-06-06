@@ -98,6 +98,42 @@ Useful examples:
 npm run verify
 ```
 
+## Project Structure
+
+```text
+.
+├── app.config.json
+├── main.js
+├── src/
+│   ├── config.js
+│   ├── create-window.js
+│   └── url-policy.js
+├── test/
+│   ├── config.test.js
+│   └── url-policy.test.js
+├── examples/
+├── docs/
+└── scripts/
+```
+
+## Publish Checklist
+
+Before publishing your fork:
+
+```bash
+npm install
+npm run verify
+git status --short
+rg -n "token|password|cookie|secret|/home/|gmail|BEGIN .*KEY" . -g '!/.git/**'
+```
+
+Create a GitHub repository and push:
+
+```bash
+git remote add origin git@github.com:YOUR_USERNAME/ai-linux-webapp-wrapper.git
+git push -u origin main
+```
+
 ## Wayland Notes
 
 If your Electron version does not select Wayland automatically, try:
