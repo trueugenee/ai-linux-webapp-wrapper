@@ -15,6 +15,7 @@ npm start
 ## Verify
 
 ```bash
+npm run doctor
 npm run verify
 ```
 
@@ -25,11 +26,12 @@ npm run verify
 - `src/config.js` loads and validates config.
 - `src/url-policy.js` owns navigation policy.
 - `src/create-window.js` owns Electron window/session setup.
+- `src/doctor.js` owns `app.config.json` diagnostics.
 - `scripts/install-desktop-entry.sh` installs a local `.desktop` file and icon from `app.config.json`.
 
 ## Current Decisions
 
-- Current package version is `0.1.0` until the template gets real user feedback.
+- Current package version is `0.1.1`.
 - CommonJS is used to keep the app simple for Node/Electron beginners.
 - Renderer security defaults stay strict: no Node integration, context isolation on, sandbox on.
 - TradingView remains the default use case, but the repository is documented as a generic wrapper template.

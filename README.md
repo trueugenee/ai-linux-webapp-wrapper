@@ -82,6 +82,7 @@ Make sure the host is listed in `allowedHosts`:
 Then verify and run:
 
 ```bash
+npm run doctor
 npm run verify
 npm start
 ```
@@ -111,8 +112,16 @@ Useful examples:
 ## Verify
 
 ```bash
+npm run doctor
 npm run verify
 ```
+
+`npm run doctor` checks common `app.config.json` mistakes, including:
+
+- non-HTTPS URLs
+- `startUrl` host missing from `allowedHosts`
+- wildcard hosts
+- desktop-unfriendly `appId` values
 
 ## Project Structure
 
@@ -123,9 +132,11 @@ npm run verify
 ├── src/
 │   ├── config.js
 │   ├── create-window.js
+│   ├── doctor.js
 │   └── url-policy.js
 ├── test/
 │   ├── config.test.js
+│   ├── doctor.test.js
 │   └── url-policy.test.js
 ├── examples/
 ├── docs/
@@ -138,6 +149,7 @@ Before publishing your fork:
 
 ```bash
 npm install
+npm run doctor
 npm run verify
 git status --short
 rg -n "token|password|cookie|secret|/home/|gmail|BEGIN .*KEY" . -g '!/.git/**'
