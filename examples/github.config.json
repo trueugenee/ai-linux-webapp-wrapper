@@ -1,0 +1,16 @@
+{
+  "appId": "github-wrapper",
+  "appName": "GitHub",
+  "startUrl": "https://github.com/",
+  "allowedHosts": [
+    "github.com",
+    "www.github.com"
+  ],
+  "window": {
+    "width": 1280,
+    "height": 900,
+    "frame": false,
+    "backgroundColor": "#0d1117"
+  },
+  "hideScrollbars": false
+}

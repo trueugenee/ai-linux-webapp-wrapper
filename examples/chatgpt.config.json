@@ -1,0 +1,15 @@
+{
+  "appId": "chatgpt-wrapper",
+  "appName": "ChatGPT",
+  "startUrl": "https://chatgpt.com/",
+  "allowedHosts": [
+    "chatgpt.com"
+  ],
+  "window": {
+    "width": 1280,
+    "height": 900,
+    "frame": false,
+    "backgroundColor": "#171717"
+  },
+  "hideScrollbars": false
+}

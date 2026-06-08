@@ -1,0 +1,15 @@
+{
+  "appId": "docs-wrapper",
+  "appName": "Docs",
+  "startUrl": "https://developer.mozilla.org/",
+  "allowedHosts": [
+    "developer.mozilla.org"
+  ],
+  "window": {
+    "width": 1280,
+    "height": 900,
+    "frame": false,
+    "backgroundColor": "#1b1b1b"
+  },
+  "hideScrollbars": false
+}

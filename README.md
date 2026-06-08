@@ -108,6 +108,13 @@ Useful examples:
 
 - [examples/tradingview.config.json](examples/tradingview.config.json)
 - [examples/generic-dashboard.config.json](examples/generic-dashboard.config.json)
+- [examples/chatgpt.config.json](examples/chatgpt.config.json)
+- [examples/github.config.json](examples/github.config.json)
+- [examples/docs.config.json](examples/docs.config.json)
+- [examples/self-hosted-dashboard.config.json](examples/self-hosted-dashboard.config.json)
+
+Some webapps use separate login or OAuth hosts. Add those hosts only when you
+understand why they are needed, and keep `allowedHosts` explicit.
 
 ## Verify
 

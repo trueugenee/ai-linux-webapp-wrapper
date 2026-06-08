@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 - 2026-06-08
+
+- Added more real-world example configs.
+- Added examples for ChatGPT, GitHub, docs, and a self-hosted dashboard.
+- Documented that login/OAuth hosts should be added explicitly.
+
 ## 0.1.1 - 2026-06-08
 
 - Added `npm run doctor` for `app.config.json` diagnostics.

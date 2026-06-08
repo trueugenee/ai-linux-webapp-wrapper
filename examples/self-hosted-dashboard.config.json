@@ -1,0 +1,15 @@
+{
+  "appId": "self-hosted-dashboard",
+  "appName": "Self-hosted Dashboard",
+  "startUrl": "https://dashboard.example.com/",
+  "allowedHosts": [
+    "dashboard.example.com"
+  ],
+  "window": {
+    "width": 1280,
+    "height": 800,
+    "frame": false,
+    "backgroundColor": "#111111"
+  },
+  "hideScrollbars": true
+}

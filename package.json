@@ -1,6 +1,6 @@
 {
   "name": "ai-linux-webapp-wrapper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An AI-friendly Linux Electron wrapper template for frameless webapps.",
   "main": "main.js",
   "private": false,
