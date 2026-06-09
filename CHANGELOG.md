@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3 - 2026-06-09
+
+- Added a config doctor warning for webapps that may need separate login or OAuth hosts.
+- Documented the warning in README.
+
 ## 0.1.2 - 2026-06-08
 
 - Added more real-world example configs.

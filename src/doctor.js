@@ -43,6 +43,12 @@ function runDoctor(rawConfig) {
     );
   }
 
+  if (config.allowedHosts.length === 1) {
+    warnings.push(
+      "Some webapps use separate login or OAuth hosts. If login opens externally, add the exact login host intentionally."
+    );
+  }
+
   return {
     ok: errors.length === 0,
     errors,

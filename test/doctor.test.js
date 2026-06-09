@@ -19,7 +19,9 @@ test("runDoctor passes for a valid config", () => {
 
   assert.equal(result.ok, true);
   assert.deepEqual(result.errors, []);
-  assert.deepEqual(result.warnings, []);
+  assert.deepEqual(result.warnings, [
+    "Some webapps use separate login or OAuth hosts. If login opens externally, add the exact login host intentionally.",
+  ]);
 });
 
 test("runDoctor reports when startUrl host is not allowed", () => {
@@ -61,5 +63,20 @@ test("runDoctor warns about invalid appId characters", () => {
   assert.equal(result.ok, true);
   assert.deepEqual(result.warnings, [
     "appId should use lowercase letters, numbers, and hyphens for desktop integration.",
+    "Some webapps use separate login or OAuth hosts. If login opens externally, add the exact login host intentionally.",
+  ]);
+});
+
+test("runDoctor warns when only one allowed host is configured", () => {
+  const result = runDoctor({
+    appId: "example-wrapper",
+    appName: "Example",
+    startUrl: "https://example.com/app",
+    allowedHosts: ["example.com"],
+  });
+
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.warnings, [
+    "Some webapps use separate login or OAuth hosts. If login opens externally, add the exact login host intentionally.",
   ]);
 });

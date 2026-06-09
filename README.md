@@ -129,6 +129,7 @@ npm run verify
 - `startUrl` host missing from `allowedHosts`
 - wildcard hosts
 - desktop-unfriendly `appId` values
+- webapps that may need separate login or OAuth hosts
 
 ## Project Structure
 
