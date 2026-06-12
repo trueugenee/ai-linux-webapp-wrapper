@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4 - 2026-06-12
+
+- Added `npm run doctor:examples` to validate every config in `examples/`.
+- Included example config diagnostics in `npm run verify`.
+- Added tests for example config diagnostics.
+
 ## 0.1.3 - 2026-06-09
 
 - Added a config doctor warning for webapps that may need separate login or OAuth hosts.

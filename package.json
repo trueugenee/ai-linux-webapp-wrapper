@@ -1,6 +1,6 @@
 {
   "name": "ai-linux-webapp-wrapper",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "An AI-friendly Linux Electron wrapper template for frameless webapps.",
   "main": "main.js",
   "private": false,
@@ -8,10 +8,11 @@
   "scripts": {
     "start": "electron .",
     "doctor": "node scripts/doctor.js",
-    "check": "node --check main.js src/config.js src/url-policy.js src/create-window.js src/doctor.js scripts/doctor.js test/config.test.js test/url-policy.test.js test/doctor.test.js",
+    "doctor:examples": "node scripts/doctor-examples.js",
+    "check": "node --check main.js src/config.js src/url-policy.js src/create-window.js src/doctor.js src/doctor-examples.js scripts/doctor.js scripts/doctor-examples.js test/config.test.js test/url-policy.test.js test/doctor.test.js test/doctor-examples.test.js",
     "check:shell": "bash -n scripts/install-desktop-entry.sh",
     "test": "node --test",
-    "verify": "npm run doctor && npm run check && npm run check:shell && npm test"
+    "verify": "npm run doctor && npm run doctor:examples && npm run check && npm run check:shell && npm test"
   },
   "keywords": [
     "ai",

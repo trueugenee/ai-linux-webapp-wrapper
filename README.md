@@ -120,6 +120,7 @@ understand why they are needed, and keep `allowedHosts` explicit.
 
 ```bash
 npm run doctor
+npm run doctor:examples
 npm run verify
 ```
 
@@ -130,6 +131,8 @@ npm run verify
 - wildcard hosts
 - desktop-unfriendly `appId` values
 - webapps that may need separate login or OAuth hosts
+
+`npm run doctor:examples` validates every `examples/*.config.json` file.
 
 ## Project Structure
 
@@ -158,6 +161,7 @@ Before publishing your fork:
 ```bash
 npm install
 npm run doctor
+npm run doctor:examples
 npm run verify
 git status --short
 rg -n "token|password|cookie|secret|/home/|gmail|BEGIN .*KEY" . -g '!/.git/**'
