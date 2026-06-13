@@ -52,6 +52,20 @@ test("runDoctor reports wildcard hosts", () => {
   ]);
 });
 
+test("runDoctor reports URL values in allowedHosts", () => {
+  const result = runDoctor({
+    appId: "example-wrapper",
+    appName: "Example",
+    startUrl: "https://example.com/app",
+    allowedHosts: ["https://example.com"],
+  });
+
+  assert.equal(result.ok, false);
+  assert.deepEqual(result.errors, [
+    "allowedHosts must contain hostnames only; use \"example.com\" instead of \"https://example.com\".",
+  ]);
+});
+
 test("runDoctor warns about invalid appId characters", () => {
   const result = runDoctor({
     appId: "Example Wrapper",

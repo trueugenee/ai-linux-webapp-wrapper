@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.5 - 2026-06-13
+
+- Improved config doctor errors when `allowedHosts` contains full URLs instead of hostnames.
+- Added regression coverage for hostname-only `allowedHosts` diagnostics.
+
 ## 0.1.4 - 2026-06-12
 
 - Added `npm run doctor:examples` to validate every config in `examples/`.

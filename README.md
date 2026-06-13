@@ -129,6 +129,7 @@ npm run verify
 - non-HTTPS URLs
 - `startUrl` host missing from `allowedHosts`
 - wildcard hosts
+- full URLs accidentally used in `allowedHosts`
 - desktop-unfriendly `appId` values
 - webapps that may need separate login or OAuth hosts
 

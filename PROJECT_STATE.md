@@ -33,7 +33,7 @@ npm run verify
 
 ## Current Decisions
 
-- Current package version is `0.1.4`.
+- Current package version is `0.1.5`.
 - CommonJS is used to keep the app simple for Node/Electron beginners.
 - Renderer security defaults stay strict: no Node integration, context isolation on, sandbox on.
 - TradingView remains the default use case, but the repository is documented as a generic wrapper template.

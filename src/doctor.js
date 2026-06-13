@@ -19,10 +19,23 @@ function runDoctor(rawConfig) {
   }
 
   const startUrl = parseUrl(config.startUrl);
+  const invalidHostValues = new Set();
+
+  for (const host of config.allowedHosts) {
+    const parsedHost = parseUrl(host);
+
+    if (parsedHost !== null) {
+      invalidHostValues.add(host);
+      errors.push(
+        `allowedHosts must contain hostnames only; use "${parsedHost.hostname}" instead of "${host}".`
+      );
+    }
+  }
 
   if (
     startUrl !== null &&
-    !config.allowedHosts.includes(startUrl.hostname.toLowerCase())
+    !config.allowedHosts.includes(startUrl.hostname.toLowerCase()) &&
+    invalidHostValues.size === 0
   ) {
     errors.push(
       `startUrl host "${startUrl.hostname}" is not listed in allowedHosts.`
